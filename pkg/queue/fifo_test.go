@@ -3,32 +3,8 @@ package queue
 import (
 	"testing"
 )
-func TestEnqueue(t *testing.T) {
 
-	fifo := FIFOQueue{}
-
-	if fifo.Size() != 0 {
-		t.Fail()
-	}
-
-	fifo.Enqueue(1)
-	if fifo.Size() != 1 && fifo.tail != 1{
-		t.Fail()
-	}
-	
-	fifo.Enqueue(2)
-
-	ele := fifo.Dequeue() 
-
-	v := ele.(int)
-
-	if v != 1 {
-		t.Fail()
-	}
-
-}
-
-func TestQueue(t *testing.T) {
+func TestFIFOQueue(t *testing.T) {
 	q := NewFIFOQueue()
 	count := 10000
 	var first, tail int
@@ -49,8 +25,8 @@ func TestQueue(t *testing.T) {
 		first++
 	}
 
-	if q.Dequeue() != EmptyQueue {
+	if q.Size() != 0 {
 		t.Error("Meant to be an empty queue")
 	}
-	
+
 }
