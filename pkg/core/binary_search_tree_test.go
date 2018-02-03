@@ -43,7 +43,7 @@ func TestFind(t *testing.T) {
 	if _, exists := tree.Find(seedValue + 1); exists {
 		t.Fail()
 	}
-	if _, exists := tree.Find(seedValue - 1); exists  {
+	if _, exists := tree.Find(seedValue - 1); exists {
 		t.Fail()
 	}
 }
